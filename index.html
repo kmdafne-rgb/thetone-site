@@ -77,7 +77,7 @@
 <div style="background:#0E0D0A; overflow-x:hidden" onMouseMove="{{ onMove }}" onMouseLeave="{{ onLeave }}" onTouchStart="{{ onTouch }}" onTouchMove="{{ onTouch }}" onTouchEnd="{{ onLeave }}">
 
   <div style="position:fixed; inset:0; z-index:0; overflow:hidden; background:{{ planeBg }}">
-    <div aria-hidden="true" style="position:absolute; inset:0; background-image:url('./bg-v3.jpg'); background-size:cover; background-position:50% 85%"></div>
+    <div aria-hidden="true" style="position:absolute; inset:0; background-image:url('./bg-v3.jpg'); background-size:cover; background-position:50% 79%"></div>
     <div aria-hidden="true" style="position:absolute; inset:0; background:{{ planeTint }}; mix-blend-mode:{{ planeTintMix }}"></div>
     <div aria-hidden="true" style="position:absolute; inset:-25%; background:radial-gradient(38% 34% at 42% 38%, rgba(255,247,232,0.5), rgba(255,247,232,0) 70%); opacity:0.22"></div>
     <div aria-hidden="true" style="position:absolute; inset:-25%; background:radial-gradient(34% 30% at 62% 64%, rgba(206,214,222,0.42), rgba(206,214,222,0) 72%); opacity:0.18"></div>
@@ -102,10 +102,13 @@
   </sc-if>
 
   <div aria-hidden="true" style="position:fixed; inset:0; z-index:6; pointer-events:none">
-    <div style="position:absolute; left:{{ railX }}; top:0; bottom:0; width:1px; background-color:rgba(242,239,232,0.3); background-image:{{ glowV }}; background-attachment:{{ bgAttach }}"></div>
-    <div style="position:absolute; right:{{ railX }}; top:0; bottom:0; width:1px; background-color:rgba(242,239,232,0.3); background-image:{{ glowV }}; background-attachment:{{ bgAttach }}"></div>
-    <div style="position:absolute; left:0; right:0; top:72vh; height:1px; background-color:rgba(242,239,232,0.22); background-image:{{ glow }}; background-attachment:{{ bgAttach }}"></div>
-    <div style="position:absolute; left:0; right:0; top:26vh; height:1px; background-color:rgba(242,239,232,0.22); background-image:{{ glow }}; background-attachment:{{ bgAttach }}"></div>
+    <div style="position:absolute; left:{{ railX }}; top:0; bottom:0; width:1px; background-color:rgba(242,239,232,0.3); background-image:{{ gv0 }}; background-attachment:{{ vAttach }}"></div>
+    <div style="position:absolute; right:{{ railX }}; top:0; bottom:0; width:1px; background-color:rgba(242,239,232,0.3); background-image:{{ gv1 }}; background-attachment:{{ vAttach }}"></div>
+    <div style="position:absolute; left:0; width:{{ railX }}; top:26vh; height:1px; background-color:{{ bc0 }}; box-shadow:{{ bs0 }}; background-image:{{ gh0 }}; background-attachment:{{ hAttach }}"></div>
+    <div style="position:absolute; left:0; width:{{ railX }}; top:72vh; height:1px; background-color:{{ bc1 }}; box-shadow:{{ bs1 }}; background-image:{{ gh1 }}; background-attachment:{{ hAttach }}"></div>
+    <div style="position:absolute; right:0; width:{{ railX }}; top:18vh; height:1px; background-color:{{ bc2 }}; box-shadow:{{ bs2 }}; background-image:{{ gh2 }}; background-attachment:{{ hAttach }}"></div>
+    <div style="position:absolute; right:0; width:{{ railX }}; top:52vh; height:1px; background-color:{{ bc3 }}; box-shadow:{{ bs3 }}; background-image:{{ gh3 }}; background-attachment:{{ hAttach }}"></div>
+    <div style="position:absolute; right:0; width:{{ railX }}; top:84vh; height:1px; background-color:{{ bc4 }}; box-shadow:{{ bs4 }}; background-image:{{ gh4 }}; background-attachment:{{ hAttach }}"></div>
   </div>
 
   <div style="position:fixed; top:0; left:0; right:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:{{ navGap }}; padding:13px clamp(24px, 4.4cqw, 56px); font-size:{{ navSize }}; line-height:1.1; font-weight:600; letter-spacing:{{ navLS }}; color:#F2EFE8; background:rgba(14,13,10,0.1); backdrop-filter:blur(6px); border-bottom:1px solid rgba(242,239,232,0.2)">
@@ -134,7 +137,6 @@
     <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:{{ lhStmt }}; margin:0; color:#F2EFE8">{{ tagPre }}<span style="font-weight:800; letter-spacing:{{ lsChap }}">{{ tagStrong }}</span>{{ tagPost }}</p>
     <a href="mailto:info@thetoneshowroom.com?subject=Brand%20Inquiry" style="align-self:flex-start; margin-top:clamp(30px,5cqw,60px); font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.22em; color:#F2EFE8; border-bottom:1px solid rgba(242,239,232,0.5); padding-bottom:5px">{{ ctaBrand }}</a>
   </section>
-  <div data-glowline="0" style="height:1px; background-color:rgba(242,239,232,0.22); background-image:{{ l0 }}"></div>
 
   <section style="display:flex; flex-direction:column; justify-content:center; padding:clamp(40px,6cqw,72px) clamp(24px, 4.4cqw, 56px)">
     <p style="font-size:clamp(15px, 2.2cqw, 21px); line-height:{{ lhBody }}; color:#D5D0C4; margin:0; max-width:44ch">{{ intro }}</p>
@@ -153,7 +155,6 @@
       </div>
     </div>
   </section>
-  <div data-glowline="1" style="height:1px; background-color:rgba(242,239,232,0.22); background-image:{{ l1 }}"></div>
 
   <section id="essence" style="min-height:100svh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; padding:clamp(72px,11cqw,128px) clamp(24px, 4.4cqw, 56px)">
     <p style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.34em; color:#F2EFE8; margin:0 0 clamp(14px,2cqw,22px)">01 / ESSENCE</p>
@@ -179,7 +180,6 @@
     </div>
     <a href="mailto:info@thetoneshowroom.com?subject=Brand%20Inquiry" style="align-self:flex-start; margin-top:clamp(30px,5cqw,56px); font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.22em; color:#F2EFE8; border-bottom:1px solid rgba(242,239,232,0.5); padding-bottom:5px">{{ ctaBrand }}</a>
   </section>
-  <div data-glowline="2" style="height:1px; background-color:rgba(242,239,232,0.22); background-image:{{ l2 }}"></div>
 
 
 
@@ -191,7 +191,6 @@
       <p style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.34em; color:#F2EFE8; margin:0">B2B CENTRAL AXIS. &nbsp; YEAR-ROUND VISIBILITY.</p>
     </div>
   </section>
-  <div data-glowline="3" style="height:1px; background-color:rgba(242,239,232,0.22); background-image:{{ l3 }}"></div>
 
 
   <footer id="connect" style="position:relative; min-height:100svh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(72px,11cqw,128px) clamp(24px, 4.4cqw, 56px) clamp(96px,14cqw,168px)">
@@ -245,6 +244,15 @@ class Component extends DCLogic {
     };
     this.lightLines();
     window.addEventListener('scroll', this.onScroll, { passive: true });
+    const reducedMo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.pulseT0 = 0;
+    this.ambStep = (ts) => {
+      if (!this.pulseT0) this.pulseT0 = ts;
+      const elapsed = (ts - this.pulseT0) / 1000;
+      this.setState({ phase: ((elapsed / 5.2) % 1) * 7 });
+      this.ambRaf = requestAnimationFrame(this.ambStep);
+    };
+    if (!reducedMo) this.ambRaf = requestAnimationFrame(this.ambStep);
     const v = this.videoEl;
     const reduced = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || !this.props.useVideo;
     if (v && !reduced) {
@@ -271,6 +279,8 @@ class Component extends DCLogic {
     clearInterval(this.timer);
     clearTimeout(this.decay);
     clearTimeout(this.giveUp);
+    clearTimeout(this.ambTimer);
+    cancelAnimationFrame(this.ambRaf);
     window.removeEventListener('resize', this.onResize);
     window.removeEventListener('scroll', this.onScroll);
   }
@@ -292,20 +302,17 @@ class Component extends DCLogic {
   }
 
   lightLines() {
-    const nodes = document.querySelectorAll('[data-glowline]');
-    if (!nodes.length) return;
-    const mid = window.innerHeight * 0.5, reach = 220;
-    const lit = {};
+    const secs = document.querySelectorAll('section');
+    if (!secs.length) return;
+    const h = window.innerHeight;
     let bestY = -999, bestV = 0;
-    nodes.forEach((n) => {
-      const i = Number(n.getAttribute('data-glowline'));
-      const top = n.getBoundingClientRect().top;
-      const d = Math.abs(top - mid);
-      const v = Math.max(0, 1 - d / reach);
-      lit[i] = v;
+    secs.forEach((el) => {
+      const top = el.getBoundingClientRect().top;
+      if (top < -60 || top > h) return;
+      const v = Math.max(0, 1 - Math.abs(top - h * 0.5) / (h * 0.55));
       if (v > bestV) { bestV = v; bestY = top; }
     });
-    this.setState({ lit, crossY: bestY, crossV: bestV, scrollOn: 1 });
+    this.setState({ crossY: bestY, crossV: bestV, scrollOn: 1 });
     clearInterval(this.f_scrollOn);
     clearTimeout(this.scrollIdle);
     this.scrollIdle = setTimeout(() => this.fade('scrollOn'), 500);
@@ -386,6 +393,20 @@ class Component extends DCLogic {
     const cv = this.state.crossV || 0;
     const cross = `linear-gradient(to bottom, rgba(${rgb},0) ${Math.max(0, cy - 170)}px, rgba(${rgb},${0.95 * cv}) ${cy}px, rgba(${rgb},0) ${cy + 170}px)`;
     const sweep = `${cross}, linear-gradient(to bottom, rgba(${rgb},0) ${Math.max(0, sweepPos - 150)}px, rgba(${rgb},${0.35 * sweepOn}) ${sweepPos}px, rgba(${rgb},0) ${sweepPos + 150}px)`;
+    const u = ((this.state.phase || 0) / 7) % 1;
+    const fade = Math.sin(Math.min(1, u * 1.25) * Math.PI).toFixed(3);
+    const stop = (p, a) => 'rgba(' + rgb + ',0) ' + (p - 15).toFixed(1) + '%, rgba(' + rgb + ',' + a + ') ' + p.toFixed(1) + '%, rgba(' + rgb + ',0) ' + (p + 15).toFixed(1) + '%';
+    // A. heart: light always travels from the centre column outwards
+    const hGlow = (i, dir) => {
+      const p = (dir > 0 ? u : 1 - u) * 100;
+      return cursor + ', linear-gradient(to right, ' + stop(p, fade) + ')';
+    };
+    const hBase = (i) => 'rgba(242,239,232,0.22)';
+    const hShadow = (i) => 'none';
+    const railFlow = (i) => {
+      const up = 50 - 50 * u, dn = 50 + 50 * u;
+      return 'linear-gradient(to bottom, ' + stop(up, fade) + ', rgba(' + rgb + ',0) 50%, ' + stop(dn, fade) + ')';
+    };
     const lit = this.state.lit || {};
     const lineVals = {};
     for (let i = 0; i < 12; i++) {
@@ -444,6 +465,9 @@ class Component extends DCLogic {
       videoRef: (el) => { this.videoEl = el; },
       ...lineVals,
       glowV: `${cursor}, ${sweep}`,
+      gv0: `${cursor}, ${railFlow(0)}`,
+      gv1: `${cursor}, ${railFlow(1)}`,
+      vAttach: wide ? 'fixed, scroll' : 'scroll, scroll',
       seoulTime: t[0], milanTime: t[1], localTime: t[2],
       wide,
       colWidth: wide ? 'min(86vw, max(700px, 46vw))' : (this.state.landscape ? '56vw' : '72vw'),
@@ -457,6 +481,11 @@ class Component extends DCLogic {
       wingW: wide ? 'calc((100vw - min(86vw, max(700px, 46vw))) / 2)' : 'auto',
       edgeLine: wide ? 'none' : '1px solid rgba(242,239,232,0.3)',
       glow: cursor,
+      hAttach: wide ? 'fixed, scroll' : 'scroll, scroll',
+      bc0: hBase(0), bc1: hBase(1), bc2: hBase(2), bc3: hBase(3), bc4: hBase(4),
+      bs0: hShadow(0), bs1: hShadow(1), bs2: hShadow(2), bs3: hShadow(3), bs4: hShadow(4),
+      gh0: hGlow(0, -1), gh1: hGlow(1, -1),
+      gh2: hGlow(2, 1), gh3: hGlow(3, 1), gh4: hGlow(4, 1),
       onMove: (e) => {
         this.setState({ vx: e.clientX, vy: e.clientY, cursorOn: 1 });
         clearTimeout(this.cursorIdle);
