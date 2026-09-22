@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100..900&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&display=swap" rel="stylesheet">
 <style>
   * { box-sizing:border-box; }
   body { word-break:keep-all; overflow-wrap:break-word; margin:0; background:#0E0D0A; color:#F2EFE8; font-family:'Archivo','Pretendard Variable',-apple-system,sans-serif; -webkit-font-smoothing:antialiased; }
@@ -111,7 +111,7 @@
     <div style="position:absolute; right:0; width:{{ railX }}; top:95vh; height:1px; background-color:{{ bc4 }}; box-shadow:{{ bs4 }}; background-image:{{ gh4 }}; background-attachment:{{ hAttach }}"></div>
   </div>
 
-  <div style="position:fixed; top:0; left:0; right:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:{{ navGap }}; padding:13px clamp(24px, 4.4cqw, 56px); font-size:{{ navSize }}; line-height:1.1; font-weight:600; letter-spacing:{{ navLS }}; color:#F2EFE8; background:transparent">
+  <div style="position:fixed; top:0; left:0; right:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:{{ navGap }}; padding:13px {{ navPadX }}; font-size:{{ navSize }}; line-height:1.1; font-weight:600; letter-spacing:{{ navLS }}; color:#F2EFE8; background:transparent">
     <a href="#top" style="display:inline-flex; align-items:center; justify-content:center; width:{{ wingW }}; margin-left:{{ logoPull }}" aria-label="THETONE"><img src="./logo-wordmark.png" alt="THETONE" style="height:{{ logoH }}; width:auto; display:block"></a>
     <div style="display:flex; gap:clamp(14px,2.4cqw,26px); align-items:center; justify-content:flex-end; flex-wrap:nowrap">
       <span style="display:{{ navLinks }}; gap:{{ navGap }}; align-items:center">
@@ -244,6 +244,13 @@ class Component extends DCLogic {
     };
     this.lightLines();
     window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.winMove = (e) => {
+      if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+      this.setState({ vx: e.clientX, vy: e.clientY, cursorOn: 1 });
+      clearTimeout(this.cursorIdle);
+      this.cursorIdle = setTimeout(() => this.fade('cursorOn'), 420);
+    };
+    window.addEventListener('mousemove', this.winMove, { passive: true });
     const reducedMo = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || window.innerWidth < 900 || (window.matchMedia && window.matchMedia('(hover: none)').matches);
     this.pulseT0 = 0;
     this.ambStep = (ts) => {
@@ -279,6 +286,7 @@ class Component extends DCLogic {
     clearInterval(this.timer);
     clearTimeout(this.decay);
     clearTimeout(this.giveUp);
+    window.removeEventListener('mousemove', this.winMove);
     clearTimeout(this.ambTimer);
     cancelAnimationFrame(this.ambRaf);
     window.removeEventListener('resize', this.onResize);
@@ -480,6 +488,7 @@ class Component extends DCLogic {
       logoH: wide ? '20px' : '15px',
       bgAttach: wide ? 'fixed' : 'scroll',
       logoPull: wide ? 'calc(-1 * clamp(24px, 4.4cqw, 56px))' : '0px',
+      navPadX: wide ? 'clamp(24px, 4.4cqw, 56px)' : (this.state.landscape ? 'calc(22vw + 18px)' : 'calc(14vw + 18px)'),
       wingW: wide ? 'calc((100vw - min(86vw, max(700px, 46vw))) / 2)' : 'auto',
       edgeLine: wide ? 'none' : '1px solid rgba(242,239,232,0.3)',
       glow: cursor,
