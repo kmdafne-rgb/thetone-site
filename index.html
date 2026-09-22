@@ -133,7 +133,7 @@
   <div style="position:relative; z-index:2; width:{{ colWidth }}; container-type:inline-size; margin:0 auto; background:{{ scrim }}; backdrop-filter:{{ scrimBlur }}; border-left:{{ edgeLine }}; border-right:{{ edgeLine }}">
   <section id="top" style="min-height:100svh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; padding:clamp(64px,12svh,150px) clamp(24px, 4.4cqw, 56px) clamp(64px,12svh,150px); position:relative">
     <p style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.34em; color:#F2EFE8; margin:0 0 clamp(14px,2cqw,22px)">00 / SEOUL → MILANO</p>
-    <p style="font-size:clamp(38px, 8.8cqw, 118px); font-weight:800; letter-spacing:{{ lsHeavySm }}; line-height:{{ lhHero }}; margin:0 0 clamp(16px,2.6cqw,30px); color:#F2EFE8"><span><span style="font-weight:{{ lightW }}; letter-spacing:{{ lightLS }}">{{ heroL1 }}</span> {{ heroL2 }}</span><br><span><span style="font-weight:{{ lightW }}; letter-spacing:{{ lightLS }}">{{ heroL3 }}</span> {{ heroL4 }}</span></p>
+    <p style="font-size:clamp(38px, 8.8cqw, 118px); font-weight:{{ lightW }}; letter-spacing:{{ lightLS }}; line-height:{{ lhHero }}; margin:0 0 clamp(16px,2.6cqw,30px); color:#F2EFE8"><span>{{ heroL1 }} <span style="font-weight:800; letter-spacing:{{ lsHeavySm }}">{{ heroL2 }}</span></span><br><span>{{ heroL3 }} <span style="font-weight:800; letter-spacing:{{ lsHeavySm }}">{{ heroL4 }}</span></span></p>
     <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:{{ lhStmt }}; margin:0; color:#F2EFE8">{{ tagPre }}<span style="font-weight:800; letter-spacing:{{ lsChap }}">{{ tagStrong }}</span>{{ tagPost }}</p>
     <a href="mailto:info@thetoneshowroom.com?subject=Brand%20Inquiry" style="align-self:flex-start; margin-top:clamp(30px,5cqw,60px); font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.22em; color:#F2EFE8; border-bottom:1px solid rgba(242,239,232,0.5); padding-bottom:5px">{{ ctaBrand }}</a>
   </section>
@@ -251,7 +251,7 @@ class Component extends DCLogic {
       this.cursorIdle = setTimeout(() => this.fade('cursorOn'), 420);
     };
     window.addEventListener('mousemove', this.winMove, { passive: true });
-    const reducedMo = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || window.innerWidth < 900 || (window.matchMedia && window.matchMedia('(hover: none)').matches);
+    const reducedMo = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || (window.matchMedia && window.matchMedia('(hover: none)').matches);
     this.pulseT0 = 0;
     this.ambStep = (ts) => {
       if (!this.pulseT0) this.pulseT0 = ts;
@@ -503,7 +503,6 @@ class Component extends DCLogic {
         this.cursorIdle = setTimeout(() => this.fade('cursorOn'), 420);
       },
       onTouch: (e) => {
-        if (window.innerWidth < 900) return;
         const t = e.touches && e.touches[0];
         if (t) this.setState({ vx: t.clientX, vy: t.clientY });
       },
