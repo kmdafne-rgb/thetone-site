@@ -246,6 +246,9 @@ class Component extends DCLogic {
     window.addEventListener('scroll', this.onScroll, { passive: true });
     this.winMove = (e) => {
       if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+      const now = performance.now();
+      if (now - (this.lastMove || 0) < 40) return;
+      this.lastMove = now;
       this.setState({ vx: e.clientX, vy: e.clientY, cursorOn: 1 });
       clearTimeout(this.cursorIdle);
       this.cursorIdle = setTimeout(() => this.fade('cursorOn'), 420);
@@ -256,7 +259,7 @@ class Component extends DCLogic {
     this.ambStep = (ts) => {
       if (!this.pulseT0) this.pulseT0 = ts;
       const elapsed = (ts - this.pulseT0) / 1000;
-      this.setState({ phase: ((elapsed / 5.2) % 1) * 7 });
+      if (!document.hidden && ts - (this.lastPulse || 0) > 90) { this.lastPulse = ts; this.setState({ phase: ((elapsed / 5.2) % 1) * 7 }); }
       this.ambRaf = requestAnimationFrame(this.ambStep);
     };
     if (!reducedMo) this.ambRaf = requestAnimationFrame(this.ambStep);
@@ -328,10 +331,10 @@ class Component extends DCLogic {
 
   copy() {
     const ko = {
-      heroL1: '', heroL2: '한국 브랜드,', heroL3: '유럽 리테일의', heroL4: '중심에.',
+      heroL1: '', heroL2: '한국 브랜드,', heroL3: '유럽 리테일의 중심에.', heroL4: '',
       tagPre: '글로벌 도약을 위한 ', tagStrong: '전략 파트너.', tagPost: '',
       intro: 'THETONE은 한국 브랜드의 유럽 진출을 돕는 밀라노 기반의 쇼룸이자 전략 파트너입니다. 브랜드의 서사를 지속 가능한 상업적 가치로 바꿉니다.',
-      essPre: '', essS1: '단계', essMid: '마다 함께하는 ', essS2: '파트너.',
+      essPre: '단계마다 함께하는 파트너.', essS1: '', essMid: '', essS2: '',
       essLead: '브랜드는 수가 아닌 확신으로 선택하며, 매 시즌을 세 단계로 함께합니다.',
       stage1When: '시즌 전',
       stage1: '진입하기 전에 트렌드와 소비자 행동으로 시장을 먼저 읽습니다. 어떤 리테일러에, 어떤 가격대로, 어떤 브랜드와 나란히 놓일지까지. 이렇게 브랜드가 서야 할 자리를 먼저 정합니다.',
@@ -396,7 +399,7 @@ class Component extends DCLogic {
     const { times: t, vx, vy, wide, sweepPos = -999, sweepOn = 0 } = this.state;
     const hex = (this.props.accent || '#E6009B').replace('#', '');
     const rgb = [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16)).join(',');
-    const cursor = `radial-gradient(180px circle at ${vx}px ${vy}px, rgba(${rgb},1) 0%, rgba(${rgb},0.5) 42%, rgba(${rgb},0) 72%)`;
+    const cursor = `radial-gradient(440px circle at ${vx}px ${vy}px, rgba(${rgb},0.95) 0%, rgba(${rgb},0.4) 44%, rgba(${rgb},0) 80%)`;
     const cy = this.state.crossY == null ? -999 : this.state.crossY;
     const cv = this.state.crossV || 0;
     const cross = `linear-gradient(to bottom, rgba(${rgb},0) ${Math.max(0, cy - 170)}px, rgba(${rgb},${0.95 * cv}) ${cy}px, rgba(${rgb},0) ${cy + 170}px)`;
