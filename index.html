@@ -409,6 +409,27 @@ class Component extends DCLogic {
       const p = (dir > 0 ? u : 1 - u) * 100;
       return cursor + ', linear-gradient(to right, ' + stop(p, fade) + ')';
     };
+    // touch/narrow devices: map the glow in element space (background-attachment is unreliable on iOS)
+    const vw = (typeof window !== 'undefined') ? window.innerWidth : 1440;
+    const vh = (typeof window !== 'undefined') ? window.innerHeight : 900;
+    const wingPx = vw * (this.state.landscape ? 0.22 : 0.14);
+    const hYs = [0.16, 0.72, 0.26, 0.54, 0.95];
+    const near = (d, r) => Math.max(0, 1 - Math.abs(d) / r);
+    const localH = (i) => {
+      const side = i < 2 ? 'L' : 'R';
+      const y = vh * hYs[i];
+      const a = near(vy - y, 420);
+      if (a <= 0.02) return 'linear-gradient(to right, rgba(' + rgb + ',0), rgba(' + rgb + ',0))';
+      const p = side === 'L' ? (vx / wingPx) * 100 : ((vx - (vw - wingPx)) / wingPx) * 100;
+      return 'linear-gradient(to right, rgba(' + rgb + ',0) ' + (p - 120).toFixed(1) + '%, rgba(' + rgb + ',' + a.toFixed(3) + ') ' + p.toFixed(1) + '%, rgba(' + rgb + ',0) ' + (p + 120).toFixed(1) + '%)';
+    };
+    const localV = (i) => {
+      const x = i === 0 ? wingPx : vw - wingPx;
+      const a = near(vx - x, 480);
+      if (a <= 0.02) return 'linear-gradient(to bottom, rgba(' + rgb + ',0), rgba(' + rgb + ',0))';
+      const p = (vy / vh) * 100;
+      return 'linear-gradient(to bottom, rgba(' + rgb + ',0) ' + (p - 34).toFixed(1) + '%, rgba(' + rgb + ',' + a.toFixed(3) + ') ' + p.toFixed(1) + '%, rgba(' + rgb + ',0) ' + (p + 34).toFixed(1) + '%)';
+    };
     const hBase = (i) => 'rgba(242,239,232,0.22)';
     const hShadow = (i) => 'none';
     const railFlow = (i) => {
@@ -474,8 +495,8 @@ class Component extends DCLogic {
       videoRef: (el) => { this.videoEl = el; },
       ...lineVals,
       glowV: `${cursor}, ${sweep}`,
-      gv0: `${cursor}, ${railFlow(0)}`,
-      gv1: `${cursor}, ${railFlow(1)}`,
+      gv0: wide ? `${cursor}, ${railFlow(0)}` : localV(0),
+      gv1: wide ? `${cursor}, ${railFlow(1)}` : localV(1),
       vAttach: wide ? 'fixed, scroll' : 'scroll, scroll',
       seoulTime: t[0], milanTime: t[1], localTime: t[2],
       wide,
@@ -495,8 +516,8 @@ class Component extends DCLogic {
       hAttach: wide ? 'fixed, scroll' : 'scroll, scroll',
       bc0: hBase(0), bc1: hBase(1), bc2: hBase(2), bc3: hBase(3), bc4: hBase(4),
       bs0: hShadow(0), bs1: hShadow(1), bs2: hShadow(2), bs3: hShadow(3), bs4: hShadow(4),
-      gh0: hGlow(0, -1), gh1: hGlow(1, -1),
-      gh2: hGlow(2, 1), gh3: hGlow(3, 1), gh4: hGlow(4, 1),
+      gh0: wide ? hGlow(0, -1) : localH(0), gh1: wide ? hGlow(1, -1) : localH(1),
+      gh2: wide ? hGlow(2, 1) : localH(2), gh3: wide ? hGlow(3, 1) : localH(3), gh4: wide ? hGlow(4, 1) : localH(4),
       onMove: (e) => {
         this.setState({ vx: e.clientX, vy: e.clientY, cursorOn: 1 });
         clearTimeout(this.cursorIdle);
