@@ -77,7 +77,7 @@
 <div style="background:#0E0D0A; overflow-x:hidden" onMouseMove="{{ onMove }}" onMouseLeave="{{ onLeave }}" onTouchStart="{{ onTouch }}" onTouchMove="{{ onTouch }}" onTouchEnd="{{ onLeave }}">
 
   <div style="position:fixed; inset:0; z-index:0; overflow:hidden; background:{{ planeBg }}">
-    <div aria-hidden="true" style="position:absolute; inset:0; background-image:url('./bg-v3.jpg'); background-size:cover; background-position:50% 79%"></div>
+    <div aria-hidden="true" style="position:absolute; inset:0; background-image:url('./bg-wide.jpg'); background-size:cover; background-position:50% 50%; transform:scale(1.22)"></div>
     <div aria-hidden="true" style="position:absolute; inset:0; background:{{ planeTint }}; mix-blend-mode:{{ planeTintMix }}"></div>
     <div aria-hidden="true" style="position:absolute; inset:-25%; background:radial-gradient(38% 34% at 42% 38%, rgba(255,247,232,0.5), rgba(255,247,232,0) 70%); opacity:0.22"></div>
     <div aria-hidden="true" style="position:absolute; inset:-25%; background:radial-gradient(34% 30% at 62% 64%, rgba(206,214,222,0.42), rgba(206,214,222,0) 72%); opacity:0.18"></div>
@@ -101,17 +101,17 @@
 
   </sc-if>
 
-  <div aria-hidden="true" style="position:fixed; inset:0; z-index:6; pointer-events:none">
+  <div aria-hidden="true" style="position:fixed; inset:0; z-index:11; pointer-events:none">
     <div style="position:absolute; left:{{ railX }}; top:0; bottom:0; width:1px; background-color:rgba(242,239,232,0.3); background-image:{{ gv0 }}; background-attachment:{{ vAttach }}"></div>
     <div style="position:absolute; right:{{ railX }}; top:0; bottom:0; width:1px; background-color:rgba(242,239,232,0.3); background-image:{{ gv1 }}; background-attachment:{{ vAttach }}"></div>
-    <div style="position:absolute; left:0; width:{{ railX }}; top:26vh; height:1px; background-color:{{ bc0 }}; box-shadow:{{ bs0 }}; background-image:{{ gh0 }}; background-attachment:{{ hAttach }}"></div>
+    <div style="position:absolute; left:0; width:{{ railX }}; top:16vh; height:1px; background-color:{{ bc0 }}; box-shadow:{{ bs0 }}; background-image:{{ gh0 }}; background-attachment:{{ hAttach }}"></div>
     <div style="position:absolute; left:0; width:{{ railX }}; top:72vh; height:1px; background-color:{{ bc1 }}; box-shadow:{{ bs1 }}; background-image:{{ gh1 }}; background-attachment:{{ hAttach }}"></div>
-    <div style="position:absolute; right:0; width:{{ railX }}; top:18vh; height:1px; background-color:{{ bc2 }}; box-shadow:{{ bs2 }}; background-image:{{ gh2 }}; background-attachment:{{ hAttach }}"></div>
-    <div style="position:absolute; right:0; width:{{ railX }}; top:52vh; height:1px; background-color:{{ bc3 }}; box-shadow:{{ bs3 }}; background-image:{{ gh3 }}; background-attachment:{{ hAttach }}"></div>
-    <div style="position:absolute; right:0; width:{{ railX }}; top:84vh; height:1px; background-color:{{ bc4 }}; box-shadow:{{ bs4 }}; background-image:{{ gh4 }}; background-attachment:{{ hAttach }}"></div>
+    <div style="position:absolute; right:0; width:{{ railX }}; top:26vh; height:1px; background-color:{{ bc2 }}; box-shadow:{{ bs2 }}; background-image:{{ gh2 }}; background-attachment:{{ hAttach }}"></div>
+    <div style="position:absolute; right:0; width:{{ railX }}; top:54vh; height:1px; background-color:{{ bc3 }}; box-shadow:{{ bs3 }}; background-image:{{ gh3 }}; background-attachment:{{ hAttach }}"></div>
+    <div style="position:absolute; right:0; width:{{ railX }}; top:95vh; height:1px; background-color:{{ bc4 }}; box-shadow:{{ bs4 }}; background-image:{{ gh4 }}; background-attachment:{{ hAttach }}"></div>
   </div>
 
-  <div style="position:fixed; top:0; left:0; right:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:{{ navGap }}; padding:13px clamp(24px, 4.4cqw, 56px); font-size:{{ navSize }}; line-height:1.1; font-weight:600; letter-spacing:{{ navLS }}; color:#F2EFE8; background:rgba(14,13,10,0.1); backdrop-filter:blur(6px); border-bottom:1px solid rgba(242,239,232,0.2)">
+  <div style="position:fixed; top:0; left:0; right:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:{{ navGap }}; padding:13px clamp(24px, 4.4cqw, 56px); font-size:{{ navSize }}; line-height:1.1; font-weight:600; letter-spacing:{{ navLS }}; color:#F2EFE8; background:transparent">
     <a href="#top" style="display:inline-flex; align-items:center; justify-content:center; width:{{ wingW }}; margin-left:calc(-1 * clamp(24px, 4.4cqw, 56px))" aria-label="THETONE"><img src="./logo-wordmark.png" alt="THETONE" style="height:{{ logoH }}; width:auto; display:block"></a>
     <div style="display:flex; gap:clamp(14px,2.4cqw,26px); align-items:center; justify-content:flex-end; flex-wrap:nowrap">
       <span style="display:{{ navLinks }}; gap:{{ navGap }}; align-items:center">
@@ -193,10 +193,10 @@
   </section>
 
 
-  <footer id="connect" style="position:relative; min-height:100svh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(72px,11cqw,128px) clamp(24px, 4.4cqw, 56px) clamp(96px,14cqw,168px)">
+  <footer id="connect" style="position:relative; min-height:100svh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:flex-start; padding:clamp(72px,11cqw,128px) clamp(24px, 4.4cqw, 56px) clamp(96px,14cqw,168px)">
     <p style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.26em; margin:0 0 clamp(14px,2cqw,22px)">03 / CONNECT</p>
     <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:800; letter-spacing:{{ lsChapSm }}; line-height:{{ lhChap }}; margin:0 0 clamp(18px,2.6cqw,30px)">CONNECT.</p>
-    <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:{{ lhStmt }}; margin:0 0 clamp(26px,4.4cqw,48px)">{{ connectPre }}<span style="font-weight:800; letter-spacing:{{ lsChap }}">{{ connectStrong }}</span>{{ connectPost }}</p>
+    <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:{{ lhStmt }}; margin:0 0 clamp(26px,4.4cqw,48px); display:{{ connectShow }}">{{ connectPre }}<span style="font-weight:800; letter-spacing:{{ lsChap }}">{{ connectStrong }}</span>{{ connectPost }}</p>
     <div style="display:flex; flex-wrap:wrap; gap:clamp(16px,2.8cqw,32px); margin:0 0 clamp(28px,4.4cqw,48px)">
       <a href="mailto:info@thetoneshowroom.com?subject=Brand%20Inquiry" style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.22em; color:#F2EFE8; border-bottom:1px solid rgba(242,239,232,0.5); padding-bottom:5px">{{ ctaBrand }}</a>
       <a href="mailto:info@thetoneshowroom.com?subject=Buyer%20Access" style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.22em; color:#F2EFE8; border-bottom:1px solid rgba(242,239,232,0.5); padding-bottom:5px">{{ ctaBuyerCaps }}</a>
@@ -322,16 +322,16 @@ class Component extends DCLogic {
     const ko = {
       heroL1: '', heroL2: '한국 브랜드,', heroL3: '유럽 리테일의', heroL4: '중심에.',
       tagPre: '글로벌 도약을 위한 ', tagStrong: '전략 파트너.', tagPost: '',
-      intro: 'THETONE은 한국 브랜드의 유럽 진출을 돕는 밀라노 기반의 쇼룸이자 전략 파트너입니다. 첫 바이어 미팅부터 마지막 대금 회수까지, 브랜드의 서사가 지속적인 상업적 가치로 이어지도록 함께합니다.',
+      intro: 'THETONE은 한국 브랜드의 유럽 진출을 돕는 밀라노 기반의 쇼룸이자 전략 파트너입니다. 브랜드의 서사를 지속 가능한 상업적 가치로 바꿉니다.',
       essPre: '', essS1: '단계', essMid: '마다 함께하는 ', essS2: '파트너.',
       essLead: '브랜드는 수가 아닌 확신으로 선택하며, 매 시즌을 세 단계로 함께합니다.',
       stage1When: '시즌 전',
-      stage1: '진입하기 전에 트렌드와 소비자 행동으로 시장을 먼저 읽습니다. 어떤 리테일러에, 어떤 가격대로, 어떤 브랜드와 나란히 놓일지까지. 포지셔닝과 현지 프레스로 컬렉션보다 브랜드의 이름이 먼저 도착하게 합니다.',
+      stage1: '진입하기 전에 트렌드와 소비자 행동으로 시장을 먼저 읽습니다. 어떤 리테일러에, 어떤 가격대로, 어떤 브랜드와 나란히 놓일지까지. 이렇게 브랜드가 서야 할 자리를 먼저 정합니다.',
       stage2When: '시즌 중',
-      stage2: '이탈리아 럭셔리 마켓의 네트워크로 브랜드에 맞는 문을 열고, 바이어를 밀라노 쇼룸으로 초대합니다. 성장은 단발성 오더가 아닌 리오더로 측정합니다.',
+      stage2: '이탈리아 럭셔리 마켓의 네트워크로 바이어를 밀라노 쇼룸에 초대합니다. 한 시즌의 오더가 아니라, 다음 시즌의 리오더로 이어지는 관계를 만듭니다.',
       stage3When: '오더 이후',
-      stage3: '오더 처리, 물류 조율, 대금 회수까지. 홀세일의 전 과정을 관리합니다. 무엇이 오더되고, 출고되고, 입금되었는지 서면으로 공유하며, 모든 조건은 시즌 전 계약으로 확정합니다.',
-      stage3b: '디자이너는 컬렉션에만 집중하세요. 대금이 회수되는 마지막 순간까지, THETONE이 함께합니다.',
+      stage3: '오더 처리, 물류 조율, 대금 회수까지. 홀세일의 전 과정을 관리합니다. 모든 조건은 시즌 전 계약으로 확정하며, 이후 오더와 출고, 입금 내역을 서면으로 공유합니다.',
+      stage3b: '디자이너는 컬렉션에만 집중하세요. 나머지는 THETONE이 챙깁니다.',
       p1: '시장에 들어서기 전에 시장을 먼저 읽습니다. 트렌드 분석과 소비자 행동 데이터로 브랜드가 서야 할 자리를 정합니다. 어떤 리테일러에, 어떤 가격대로, 어떤 브랜드 옆에 놓일지까지. 모든 시즌은 추측이 아닌 포지션에서 시작합니다.',
       p2: '크리에이티브와 커머스를 하나의 영역으로 다룹니다. 세일즈, 브랜딩, 테크놀로지 전반을 브랜드에 맞춰 컨설팅합니다. 디자이너의 비전이 바이어가 오더하고, 다시 오더하는 컬렉션이 되도록.',
       p3: '홀세일의 전 과정을 직접 운영합니다. 오더 프로세싱, 물류, 대금 회수까지. 브랜드는 컬렉션에 집중하고, 쇼룸에서 매장까지의 여정과 결제는 THETONE이 책임집니다.',
@@ -344,7 +344,7 @@ class Component extends DCLogic {
       workPre: '', workS1: '확신', workMid: '으로 선택하고, ', workS2: '정밀하게', workPost: ' 운영합니다.',
       work1: '브랜드는 수가 아니라 확신으로 선택합니다. THETONE이 맡는 브랜드는 저희가 확신을 갖고, 맞는 리테일러에 연결할 수 있는 브랜드입니다. 컬렉션 하나하나를 깊이 이해할 수 있는 규모로만 운영합니다.',
       work2: '모든 오더, 출고, 대금 회수 내역은 문서로 공유합니다. 브랜드는 매월 정산서를 통해 무엇이 오더되었고, 무엇이 납품되었으며, 얼마가 회수되었는지 확인할 수 있습니다. 모든 조건은 시즌 시작 전에 계약서로 확정합니다.',
-      connectPre: '', connectStrong: '밀라노', connectPost: '에서.',
+      connectPre: '', connectStrong: '', connectPost: '',
       ctaBrand: '브랜드 문의',
       ctaBuyerCaps: '바이어 접근 요청',
       pressNote: '프레스 및 기타 문의는 메일로 연락 주시기 바랍니다.',
@@ -353,16 +353,16 @@ class Component extends DCLogic {
     const en = {
       heroL1: 'carrying', heroL2: 'Korean brands', heroL3: 'into', heroL4: 'European retail.',
       tagPre: 'the strategic partner for ', tagStrong: 'GLOBAL ELEVATION.', tagPost: '',
-      intro: "THETONE is a Milan-based showroom and strategic partner for Korean brands entering Europe. We turn a brand's narrative into lasting commercial value, from the first buyer appointment to the final payment collected.",
+      intro: "THETONE is a Milan-based showroom and strategic partner for Korean brands entering Europe. We turn a brand's narrative into lasting commercial value.",
       essPre: 'three ', essS1: 'STAGES.', essMid: ' one ', essS2: 'PARTNER.',
       essLead: 'We choose brands by conviction, not by volume, and work every season in three stages.',
       stage1When: 'BEFORE THE SEASON',
-      stage1: 'We read the market before you enter it, through trend analysis and consumer behavior: which retailers, which price tier, which neighbors on the rack. Positioning and local press build the image, so the brand arrives before the collection does.',
+      stage1: 'We read the market before you enter it, through trend analysis and consumer behavior: which retailers, which price tier, which neighbors on the rack. This is how we define where your brand belongs.',
       stage2When: 'DURING THE SEASON',
-      stage2: "Rooted in the Italian luxury market, we open the doors that fit your identity and show the collection to buyers in Milan. We choose partners for the long term, and measure growth in reorders.",
+      stage2: "Rooted in the Italian luxury market, we bring buyers to our Milan showroom. We build relationships that lead to next season's reorder, not just this season's order.",
       stage3When: 'AFTER THE ORDER',
-      stage3b: 'You design the collection. We make sure it gets paid.',
-      stage3: 'We manage the whole wholesale cycle: order processing, logistics coordination, credit collection. Everything is reported in writing, with regular statements and terms fixed by agreement before the season.',
+      stage3b: "Design the collection. We'll handle the rest.",
+      stage3: 'We manage the whole wholesale cycle: order processing, logistics coordination, credit collection. All terms are fixed by agreement before the season, with orders, shipments, and payments reported in writing throughout.',
       p1: 'We read the market before you enter it. Trend analysis and consumer behavior define where your brand belongs: which retailers, which price tier, which neighbors on the rack. Every season starts from a position, not a guess.',
       p2: 'Creativity and commerce, treated as one discipline. We advise across sales, branding, and technology, tailored to each brand, so an artistic vision becomes a collection buyers order, and reorder.',
       p3: 'We run the entire wholesale cycle: order processing, logistics, credit collection. You design the collection. We carry it from showroom to shop floor, and make sure it gets paid.',
@@ -375,7 +375,7 @@ class Component extends DCLogic {
       workPre: 'chosen with ', workS1: 'CONVICTION.', workMid: ' run with ', workS2: 'PRECISION.', workPost: '',
       work1: 'We choose brands by conviction, not by volume. Every brand we represent is one we believe in and can place with the right retailers, and we keep our roster small enough to know each collection in depth.',
       work2: 'Every order, shipment, and payment is reported to you in writing. You receive a statement each month, showing what was ordered, what was delivered, and what has been collected. All terms are fixed in a written agreement before the season begins.',
-      connectPre: 'begin in ', connectStrong: 'MILANO.', connectPost: '',
+      connectPre: '', connectStrong: '', connectPost: '',
       ctaBrand: 'BRAND INQUIRY',
       ctaBuyerCaps: 'BUYER REQUEST ACCESS',
       pressNote: 'For press and all other inquiries, write to us directly.',
@@ -417,7 +417,7 @@ class Component extends DCLogic {
     const veilA = this.props.veilAlpha ?? 0.06;
     const vhex = (this.props.veilColor || '#0E0D0A').replace('#', '');
     const vrgb = [0, 2, 4].map((i) => parseInt(vhex.slice(i, i + 2), 16)).join(',');
-    const scrimA = this.props.scrimAlpha ?? 0.62;
+    const scrimA = this.props.scrimAlpha ?? 0.45;
     const planes = {
       warm: 'radial-gradient(70% 80% at 50% 38%, #E9E4DA 0%, #CFC8BB 38%, #8E887C 70%, #4A463F 100%)',
       neutral: 'radial-gradient(70% 80% at 50% 38%, #EAE9E6 0%, #C6C5C1 38%, #868582 70%, #3F3F3D 100%)',
@@ -428,6 +428,7 @@ class Component extends DCLogic {
     const wideCol = (this.state.colW || 0) >= 900;
     return {
       ...this.copy(),
+      connectShow: (this.copy().connectPre || this.copy().connectStrong || this.copy().connectPost) ? 'block' : 'none',
       heroLeading: lang === 'ko' ? 1.2 : 0.88,
       lightW: lang === 'ko' ? 300 : 200,
       lightLS: lang === 'ko' ? '-0.01em' : '-0.035em',
