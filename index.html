@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500;600;700;800&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100..900&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&display=swap" rel="stylesheet">
 <style>
   * { box-sizing:border-box; }
   body { word-break:keep-all; overflow-wrap:break-word; margin:0; background:#0E0D0A; color:#F2EFE8; font-family:'Archivo','Pretendard Variable',-apple-system,sans-serif; -webkit-font-smoothing:antialiased; }
@@ -74,9 +74,9 @@
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#1A1A1A"/><text x="50" y="62" font-family="Georgia,serif" font-style="italic" font-size="44" fill="#F2EFE8" text-anchor="middle">T</text></svg></template>
 </helmet>
 
-<div style="background:#0E0D0A; overflow-x:hidden" onMouseMove="{{ onMove }}" onMouseLeave="{{ onLeave }}" onTouchStart="{{ onTouch }}" onTouchMove="{{ onTouch }}" onTouchEnd="{{ onLeave }}">
+<div style="background:#0E0D0A; overflow-x:clip; touch-action:pan-y" onMouseMove="{{ onMove }}" onMouseLeave="{{ onLeave }}" onTouchStart="{{ onTouch }}" onTouchMove="{{ onTouch }}" onTouchEnd="{{ onLeave }}">
 
-  <div style="position:fixed; inset:0; z-index:0; overflow:hidden; background:{{ planeBg }}">
+  <div aria-hidden="true" style="position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; background:{{ planeBg }}">
     <div aria-hidden="true" style="position:absolute; inset:0; background-image:url('./bg-wide.jpg'); background-size:cover; background-position:50% 78%; transform:scale(1.28)"></div>
     <div aria-hidden="true" style="position:absolute; inset:0; background:{{ planeTint }}; mix-blend-mode:{{ planeTintMix }}"></div>
     <div aria-hidden="true" style="position:absolute; inset:-25%; background:radial-gradient(38% 34% at 42% 38%, rgba(255,247,232,0.5), rgba(255,247,232,0) 70%); opacity:0.22"></div>
@@ -112,7 +112,7 @@
   </div>
 
   <div style="position:fixed; top:0; left:0; right:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:{{ navGap }}; padding:13px clamp(24px, 4.4cqw, 56px); font-size:{{ navSize }}; line-height:1.1; font-weight:600; letter-spacing:{{ navLS }}; color:#F2EFE8; background:transparent">
-    <a href="#top" style="display:inline-flex; align-items:center; justify-content:center; width:{{ wingW }}; margin-left:calc(-1 * clamp(24px, 4.4cqw, 56px))" aria-label="THETONE"><img src="./logo-wordmark.png" alt="THETONE" style="height:{{ logoH }}; width:auto; display:block"></a>
+    <a href="#top" style="display:inline-flex; align-items:center; justify-content:center; width:{{ wingW }}; margin-left:{{ logoPull }}" aria-label="THETONE"><img src="./logo-wordmark.png" alt="THETONE" style="height:{{ logoH }}; width:auto; display:block"></a>
     <div style="display:flex; gap:clamp(14px,2.4cqw,26px); align-items:center; justify-content:flex-end; flex-wrap:nowrap">
       <span style="display:{{ navLinks }}; gap:{{ navGap }}; align-items:center">
       <a href="#essence" style="color:inherit">ESSENCE</a>
@@ -244,7 +244,7 @@ class Component extends DCLogic {
     };
     this.lightLines();
     window.addEventListener('scroll', this.onScroll, { passive: true });
-    const reducedMo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reducedMo = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || window.innerWidth < 900 || (window.matchMedia && window.matchMedia('(hover: none)').matches);
     this.pulseT0 = 0;
     this.ambStep = (ts) => {
       if (!this.pulseT0) this.pulseT0 = ts;
@@ -473,12 +473,13 @@ class Component extends DCLogic {
       wide,
       colWidth: wide ? 'min(86vw, max(700px, 46vw))' : (this.state.landscape ? '56vw' : '72vw'),
       railX: wide ? 'calc((100vw - min(86vw, max(700px, 46vw))) / 2)' : (this.state.landscape ? '22vw' : '14vw'),
-      navLinks: 'inline-flex',
+      navLinks: wide ? 'inline-flex' : 'none',
       navSize: wide ? '10.5px' : '8.5px',
       navLS: wide ? '0.2em' : '0.1em',
       navGap: wide ? 'clamp(18px,2vw,36px)' : '10px',
       logoH: wide ? '20px' : '15px',
       bgAttach: wide ? 'fixed' : 'scroll',
+      logoPull: wide ? 'calc(-1 * clamp(24px, 4.4cqw, 56px))' : '0px',
       wingW: wide ? 'calc((100vw - min(86vw, max(700px, 46vw))) / 2)' : 'auto',
       edgeLine: wide ? 'none' : '1px solid rgba(242,239,232,0.3)',
       glow: cursor,
@@ -493,6 +494,7 @@ class Component extends DCLogic {
         this.cursorIdle = setTimeout(() => this.fade('cursorOn'), 420);
       },
       onTouch: (e) => {
+        if (window.innerWidth < 900) return;
         const t = e.touches && e.touches[0];
         if (t) this.setState({ vx: t.clientX, vy: t.clientY });
       },
