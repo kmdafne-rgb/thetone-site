@@ -80,7 +80,7 @@
     <div aria-hidden="true" style="position:absolute; inset:0; background-image:url('./bg-wide.jpg'); background-size:cover; background-position:50% 78%; transform:scale(1.28)"></div>
     <div aria-hidden="true" style="position:absolute; inset:0; background:{{ planeTint }}; mix-blend-mode:{{ planeTintMix }}"></div>
     <div aria-hidden="true" style="position:absolute; inset:-25%; background:radial-gradient(38% 34% at 42% 38%, rgba(255,247,232,0.5), rgba(255,247,232,0) 70%); opacity:0.22"></div>
-    <div aria-hidden="true" style="position:absolute; inset:-25%; background:radial-gradient(34% 30% at 62% 64%, rgba(206,214,222,0.42), rgba(206,214,222,0) 72%); opacity:0.18"></div>
+    <div aria-hidden="true" style="position:absolute; inset:-25%; background:radial-gradient(34% 30% at 62% 64%, rgba(236,222,196,0.42), rgba(236,222,196,0) 72%); opacity:0.18"></div>
     <div aria-hidden="true" style="position:absolute; inset:0; background:radial-gradient(120% 100% at 50% 40%, rgba(255,255,255,0.05), rgba(14,13,10,0.5) 72%, rgba(14,13,10,0.82) 100%)"></div>
     <svg aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="none" style="position:absolute; inset:0; width:100%; height:100%; opacity:0; mix-blend-mode:screen; pointer-events:none">
       <filter id="caustics" x="0" y="0" width="100%" height="100%">
@@ -96,19 +96,19 @@
   </div>
 
   <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
-    <div aria-hidden="true" style="position:fixed; left:0; top:0; bottom:0; width:27vw; z-index:0; background:{{ veil }}; mix-blend-mode:{{ veilMix }}; pointer-events:none"></div>
-    <div aria-hidden="true" style="position:fixed; right:0; top:0; bottom:0; width:27vw; z-index:0; background:{{ veil }}; mix-blend-mode:{{ veilMix }}; pointer-events:none"></div>
+    <div aria-hidden="true" style="position:fixed; left:0; top:0; bottom:0; width:calc((100vw - min(86vw, max(700px, 46vw))) / 2); z-index:0; background:{{ veil }}; mix-blend-mode:{{ veilMix }}; pointer-events:none"></div>
+    <div aria-hidden="true" style="position:fixed; right:0; top:0; bottom:0; width:calc((100vw - min(86vw, max(700px, 46vw))) / 2); z-index:0; background:{{ veil }}; mix-blend-mode:{{ veilMix }}; pointer-events:none"></div>
 
   </sc-if>
 
   <div aria-hidden="true" style="position:fixed; inset:0; z-index:11; pointer-events:none">
-    <div style="position:absolute; left:{{ railX }}; top:0; bottom:0; width:1px; background-color:rgba(242,239,232,0.3); background-image:{{ gv0 }}; background-attachment:{{ vAttach }}"></div>
-    <div style="position:absolute; right:{{ railX }}; top:0; bottom:0; width:1px; background-color:rgba(242,239,232,0.3); background-image:{{ gv1 }}; background-attachment:{{ vAttach }}"></div>
-    <div style="position:absolute; left:0; width:{{ railX }}; top:16vh; height:1px; background-color:{{ bc0 }}; box-shadow:{{ bs0 }}; background-image:{{ gh0 }}; background-attachment:{{ hAttach }}"></div>
-    <div style="position:absolute; left:0; width:{{ railX }}; top:72vh; height:1px; background-color:{{ bc1 }}; box-shadow:{{ bs1 }}; background-image:{{ gh1 }}; background-attachment:{{ hAttach }}"></div>
-    <div style="position:absolute; right:0; width:{{ railX }}; top:26vh; height:1px; background-color:{{ bc2 }}; box-shadow:{{ bs2 }}; background-image:{{ gh2 }}; background-attachment:{{ hAttach }}"></div>
-    <div style="position:absolute; right:0; width:{{ railX }}; top:54vh; height:1px; background-color:{{ bc3 }}; box-shadow:{{ bs3 }}; background-image:{{ gh3 }}; background-attachment:{{ hAttach }}"></div>
-    <div style="position:absolute; right:0; width:{{ railX }}; top:95vh; height:1px; background-color:{{ bc4 }}; box-shadow:{{ bs4 }}; background-image:{{ gh4 }}; background-attachment:{{ hAttach }}"></div>
+    <div data-sk="gv0" style="position:absolute; left:{{ railX }}; top:0; bottom:0; width:1px; background-color:rgba(242,239,232,0.3); background-image:{{ gv0 }}; background-attachment:{{ vAttach }}"></div>
+    <div data-sk="gv1" style="position:absolute; right:{{ railX }}; top:0; bottom:0; width:1px; background-color:rgba(242,239,232,0.3); background-image:{{ gv1 }}; background-attachment:{{ vAttach }}"></div>
+    <div data-sk="gh0" style="position:absolute; left:0; width:{{ railX }}; top:16vh; height:1px; background-color:{{ bc0 }}; box-shadow:{{ bs0 }}; background-image:{{ gh0 }}; background-attachment:{{ hAttach }}"></div>
+    <div data-sk="gh1" style="position:absolute; left:0; width:{{ railX }}; top:72vh; height:1px; background-color:{{ bc1 }}; box-shadow:{{ bs1 }}; background-image:{{ gh1 }}; background-attachment:{{ hAttach }}"></div>
+    <div data-sk="gh2" style="position:absolute; right:0; width:{{ railX }}; top:26vh; height:1px; background-color:{{ bc2 }}; box-shadow:{{ bs2 }}; background-image:{{ gh2 }}; background-attachment:{{ hAttach }}"></div>
+    <div data-sk="gh3" style="position:absolute; right:0; width:{{ railX }}; top:54vh; height:1px; background-color:{{ bc3 }}; box-shadow:{{ bs3 }}; background-image:{{ gh3 }}; background-attachment:{{ hAttach }}"></div>
+    <div data-sk="gh4" style="position:absolute; right:0; width:{{ railX }}; top:95vh; height:1px; background-color:{{ bc4 }}; box-shadow:{{ bs4 }}; background-image:{{ gh4 }}; background-attachment:{{ hAttach }}"></div>
   </div>
 
   <div style="position:fixed; top:0; left:0; right:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:{{ navGap }}; padding:13px {{ navPadX }}; font-size:{{ navSize }}; line-height:1.1; font-weight:600; letter-spacing:{{ navLS }}; color:#F2EFE8; background:transparent">
@@ -213,7 +213,7 @@
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;useVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;배경&quot;},&quot;planeTone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;cool&quot;,&quot;options&quot;:[&quot;warm&quot;,&quot;neutral&quot;,&quot;cool&quot;,&quot;dark&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;배경&quot;},&quot;veilColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0E0D0A&quot;,&quot;options&quot;:[&quot;#E6009B&quot;,&quot;#9EC2A9&quot;,&quot;#B3A6D6&quot;,&quot;#A9B8C4&quot;,&quot;#0E0D0A&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;veilAlpha&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.06,&quot;min&quot;:0,&quot;max&quot;:0.9,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;veilMix&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;normal&quot;,&quot;options&quot;:[&quot;normal&quot;,&quot;multiply&quot;,&quot;screen&quot;,&quot;overlay&quot;,&quot;soft-light&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;scrimAlpha&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.62,&quot;min&quot;:0,&quot;max&quot;:0.7,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;useVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;배경&quot;},&quot;planeTone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;warm&quot;,&quot;options&quot;:[&quot;warm&quot;,&quot;neutral&quot;,&quot;cool&quot;,&quot;dark&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;배경&quot;},&quot;veilColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0E0D0A&quot;,&quot;options&quot;:[&quot;#E6009B&quot;,&quot;#9EC2A9&quot;,&quot;#B3A6D6&quot;,&quot;#A9B8C4&quot;,&quot;#0E0D0A&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;veilAlpha&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.2,&quot;min&quot;:0,&quot;max&quot;:0.9,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;veilMix&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;normal&quot;,&quot;options&quot;:[&quot;normal&quot;,&quot;multiply&quot;,&quot;screen&quot;,&quot;overlay&quot;,&quot;soft-light&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;scrimAlpha&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.62,&quot;min&quot;:0,&quot;max&quot;:0.7,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;}}">
 class Component extends DCLogic {
   state = { times: ['--:--', '--:--', '--:--'], vx: -9999, vy: -9999, wide: true, videoSrc: '' };
   componentDidMount() {
@@ -249,7 +249,8 @@ class Component extends DCLogic {
       const now = performance.now();
       if (now - (this.lastMove || 0) < 40) return;
       this.lastMove = now;
-      this.setState({ vx: e.clientX, vy: e.clientY, cursorOn: 1 });
+      this.state.vx = e.clientX; this.state.vy = e.clientY;
+      if (!this.state.cursorOn) this.setState({ cursorOn: 1 }); else this.paintSkel();
       clearTimeout(this.cursorIdle);
       this.cursorIdle = setTimeout(() => this.fade('cursorOn'), 420);
     };
@@ -259,7 +260,7 @@ class Component extends DCLogic {
     this.ambStep = (ts) => {
       if (!this.pulseT0) this.pulseT0 = ts;
       const elapsed = (ts - this.pulseT0) / 1000;
-      if (!document.hidden && ts - (this.lastPulse || 0) > 90) { this.lastPulse = ts; this.setState({ phase: ((elapsed / 5.2) % 1) * 7 }); }
+      if (!document.hidden && ts - (this.lastPulse || 0) > 50) { this.lastPulse = ts; this.phaseNow = ((elapsed / 5.2) % 1) * 7; this.paintSkel(); }
       this.ambRaf = requestAnimationFrame(this.ambStep);
     };
     if (!reducedMo) this.ambRaf = requestAnimationFrame(this.ambStep);
@@ -395,6 +396,13 @@ class Component extends DCLogic {
     return (this.state.lang === 'ko') ? ko : en;
   }
 
+  paintSkel() {
+    const els = document.querySelectorAll('[data-sk]');
+    if (!els.length) return;
+    const v = this.renderVals();
+    els.forEach((el) => { const val = v[el.dataset.sk]; if (val && el.style.backgroundImage !== val) el.style.backgroundImage = val; });
+  }
+
   renderVals() {
     const { times: t, vx, vy, wide, sweepPos = -999, sweepOn = 0 } = this.state;
     const hex = (this.props.accent || '#E6009B').replace('#', '');
@@ -404,7 +412,7 @@ class Component extends DCLogic {
     const cv = this.state.crossV || 0;
     const cross = `linear-gradient(to bottom, rgba(${rgb},0) ${Math.max(0, cy - 170)}px, rgba(${rgb},${0.95 * cv}) ${cy}px, rgba(${rgb},0) ${cy + 170}px)`;
     const sweep = `${cross}, linear-gradient(to bottom, rgba(${rgb},0) ${Math.max(0, sweepPos - 150)}px, rgba(${rgb},${0.35 * sweepOn}) ${sweepPos}px, rgba(${rgb},0) ${sweepPos + 150}px)`;
-    const u = ((this.state.phase || 0) / 7) % 1;
+    const u = ((this.phaseNow || 0) / 7) % 1;
     const fade = Math.sin(Math.min(1, u * 1.25) * Math.PI).toFixed(3);
     const stop = (p, a) => 'rgba(' + rgb + ',0) ' + (p - 15).toFixed(1) + '%, rgba(' + rgb + ',' + a + ') ' + p.toFixed(1) + '%, rgba(' + rgb + ',0) ' + (p + 15).toFixed(1) + '%';
     // A. heart: light always travels from the centre column outwards
@@ -446,7 +454,7 @@ class Component extends DCLogic {
       const a = 0.95 * v * (this.state.scrollOn ?? 0);
       lineVals['l' + i] = `linear-gradient(to right, rgba(${rgb},${a}), rgba(${rgb},${a}))`;
     }
-    const veilA = this.props.veilAlpha ?? 0.06;
+    const veilA = this.props.veilAlpha ?? 0.2;
     const vhex = (this.props.veilColor || '#0E0D0A').replace('#', '');
     const vrgb = [0, 2, 4].map((i) => parseInt(vhex.slice(i, i + 2), 16)).join(',');
     const scrimA = this.props.scrimAlpha ?? 0.45;
@@ -481,13 +489,13 @@ class Component extends DCLogic {
       setEn: () => this.setState({ lang: 'en' }),
       koColor: lang === 'ko' ? '#F2EFE8' : '#B9B4A8',
       enColor: lang === 'en' ? '#F2EFE8' : '#B9B4A8',
-      planeBg: planes[this.props.planeTone || 'cool'] || planes.cool,
+      planeBg: planes[this.props.planeTone || 'warm'] || planes.cool,
       planeTint: ({
-        warm: 'rgba(120,88,52,0.26)',
+        warm: 'rgba(206,176,134,0.34)',
         neutral: 'rgba(0,0,0,0)',
         cool: 'rgba(96,124,150,0.3)',
         dark: 'rgba(14,13,10,0.5)'
-      })[this.props.planeTone || 'cool'],
+      })[this.props.planeTone || 'warm'],
       planeTintMix: (this.props.planeTone === 'dark') ? 'normal' : 'multiply',
       veil: `rgba(${vrgb},${veilA})`,
       veilMix: this.props.veilMix || 'normal',
