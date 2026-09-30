@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
 <style>
   * { box-sizing:border-box; }
-  body { word-break:keep-all; overflow-wrap:break-word; margin:0; background:#0E0D0A; color:#F2EFE8; font-family:'Archivo','Pretendard Variable',-apple-system,sans-serif; -webkit-font-smoothing:antialiased; }
+  body { word-break:keep-all; overflow-wrap:break-word; margin:0; background:#0E0D0A; color:#F2EFE8; font-family:'Archivo','Pretendard Variable',-apple-system,sans-serif; font-stretch:100%; -webkit-font-smoothing:antialiased; }
   a { color:#F2EFE8; text-decoration:none; }
   a:hover { color:#E6009B; }
   @keyframes flick {
@@ -470,7 +470,7 @@ class Component extends DCLogic {
       ...this.copy(),
       connectShow: (this.copy().connectPre || this.copy().connectStrong || this.copy().connectPost) ? 'block' : 'none',
       heroLeading: lang === 'ko' ? 1.2 : 0.88,
-      lightW: lang === 'ko' ? 250 : 100,
+      lightW: lang === 'ko' ? 250 : 300,
       lightLS: lang === 'ko' ? '-0.01em' : '-0.035em',
       lightLS2: lang === 'ko' ? '0' : '-0.022em',
       lsHeavy: lang === 'ko' ? '-0.02em' : '-0.035em',
