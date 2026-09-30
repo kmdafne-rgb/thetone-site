@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
 <style>
   * { box-sizing:border-box; }
   body { word-break:keep-all; overflow-wrap:break-word; margin:0; background:#0E0D0A; color:#F2EFE8; font-family:'Archivo','Pretendard Variable',-apple-system,sans-serif; -webkit-font-smoothing:antialiased; }
@@ -77,9 +77,9 @@
 <div style="background:#0E0D0A; overflow-x:clip; touch-action:pan-y" onMouseMove="{{ onMove }}" onMouseLeave="{{ onLeave }}" onTouchStart="{{ onTouch }}" onTouchMove="{{ onTouch }}" onTouchEnd="{{ onLeave }}">
 
   <div aria-hidden="true" style="position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; background:{{ planeBg }}">
-    <div aria-hidden="true" style="position:absolute; inset:0; background-image:url('./bg-wide.jpg'); background-size:cover; background-position:50% 78%; transform:scale(1.28)"></div>
+    <div aria-hidden="true" style="position:absolute; inset:0; background-image:url('./bg-wide.jpg'); background-size:cover; background-position:50% 78%; transform:scale(1.42); filter:contrast(1.12) saturate(1.08)"></div>
     <div aria-hidden="true" style="position:absolute; inset:0; background:{{ planeTint }}; mix-blend-mode:{{ planeTintMix }}"></div>
-    <div aria-hidden="true" style="position:absolute; inset:-25%; background:radial-gradient(38% 34% at 42% 38%, rgba(255,247,232,0.5), rgba(255,247,232,0) 70%); opacity:0.22"></div>
+    <div aria-hidden="true" style="position:absolute; inset:-25%; background:radial-gradient(38% 34% at 42% 38%, rgba(255,247,232,0.5), rgba(255,247,232,0) 70%); opacity:0.12"></div>
     <div aria-hidden="true" style="position:absolute; inset:-25%; background:radial-gradient(34% 30% at 62% 64%, rgba(236,222,196,0.42), rgba(236,222,196,0) 72%); opacity:0.18"></div>
     <div aria-hidden="true" style="position:absolute; inset:0; background:radial-gradient(120% 100% at 50% 40%, rgba(255,255,255,0.05), rgba(14,13,10,0.5) 72%, rgba(14,13,10,0.82) 100%)"></div>
     <svg aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="none" style="position:absolute; inset:0; width:100%; height:100%; opacity:0; mix-blend-mode:screen; pointer-events:none">
@@ -133,8 +133,8 @@
   <div style="position:relative; z-index:2; width:{{ colWidth }}; container-type:inline-size; margin:0 auto; background:{{ scrim }}; backdrop-filter:{{ scrimBlur }}; border-left:{{ edgeLine }}; border-right:{{ edgeLine }}">
   <section id="top" style="min-height:100svh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; padding:clamp(64px,12svh,150px) clamp(24px, 4.4cqw, 56px) clamp(64px,12svh,150px); position:relative">
     <p style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.34em; color:#F2EFE8; margin:0 0 clamp(14px,2cqw,22px)">00 / SEOUL → MILANO</p>
-    <p style="font-size:clamp(38px, 8.8cqw, 118px); font-weight:{{ lightW }}; letter-spacing:{{ lightLS }}; line-height:{{ lhHero }}; margin:0 0 clamp(16px,2.6cqw,30px); color:#F2EFE8"><span>{{ heroL1 }} <span style="font-weight:800; letter-spacing:{{ lsHeavySm }}">{{ heroL2 }}</span></span><br><span>{{ heroL3 }} <span style="font-weight:800; letter-spacing:{{ lsHeavySm }}">{{ heroL4 }}</span></span></p>
-    <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:{{ lhStmt }}; margin:0; color:#F2EFE8">{{ tagPre }}<span style="font-weight:800; letter-spacing:{{ lsChap }}">{{ tagStrong }}</span>{{ tagPost }}</p>
+    <p style="font-size:clamp(38px, 8.8cqw, 118px); font-weight:{{ lightW }}; letter-spacing:{{ lightLS }}; line-height:{{ lhHero }}; margin:0 0 clamp(16px,2.6cqw,30px); color:#F2EFE8"><span>{{ heroL1 }} <span style="font-weight:900; letter-spacing:{{ lsHeavySm }}">{{ heroL2 }}</span></span><br><span>{{ heroL3 }} <span style="font-weight:900; letter-spacing:{{ lsHeavySm }}">{{ heroL4 }}</span></span></p>
+    <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:{{ lhStmt }}; margin:0; color:#F2EFE8">{{ tagPre }}<span style="font-weight:900; letter-spacing:{{ lsChap }}">{{ tagStrong }}</span>{{ tagPost }}</p>
     <a href="mailto:info@thetoneshowroom.com?subject=Brand%20Inquiry" style="align-self:flex-start; margin-top:clamp(30px,5cqw,60px); font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.22em; color:#F2EFE8; border-bottom:1px solid rgba(242,239,232,0.5); padding-bottom:5px">{{ ctaBrand }}</a>
   </section>
 
@@ -143,23 +143,23 @@
     <div style="width:fit-content; max-width:100%; margin:clamp(22px,3.4cqw,40px) 0 0; display:grid; gap:clamp(18px,2.8cqw,34px); text-align:left">
       <div>
         <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:1.12; margin:0 0 clamp(6px,1cqw,12px); color:#B9B4A8">curate</p>
-        <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:800; letter-spacing:{{ lsChapSm }}; line-height:{{ lhChap }}; margin:0; white-space:nowrap; color:#F2EFE8">ECLECTIC.</p>
+        <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:900; letter-spacing:{{ lsChapSm }}; line-height:{{ lhChap }}; margin:0; white-space:nowrap; color:#F2EFE8">ECLECTIC.</p>
       </div>
       <div>
         <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:1.12; margin:0 0 clamp(6px,1cqw,12px); color:#B9B4A8">define</p>
-        <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:800; letter-spacing:{{ lsChapSm }}; line-height:{{ lhChap }}; margin:0; white-space:nowrap; color:#F2EFE8">TIMELESS.</p>
+        <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:900; letter-spacing:{{ lsChapSm }}; line-height:{{ lhChap }}; margin:0; white-space:nowrap; color:#F2EFE8">TIMELESS.</p>
       </div>
       <div>
         <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:1.12; margin:0 0 clamp(6px,1cqw,12px); color:#B9B4A8">elevate</p>
-        <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:800; letter-spacing:{{ lsChapSm }}; line-height:{{ lhChap }}; margin:0; white-space:nowrap; color:#F2EFE8">VALUE.</p>
+        <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:900; letter-spacing:{{ lsChapSm }}; line-height:{{ lhChap }}; margin:0; white-space:nowrap; color:#F2EFE8">VALUE.</p>
       </div>
     </div>
   </section>
 
   <section id="essence" style="min-height:100svh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; padding:clamp(72px,11cqw,128px) clamp(24px, 4.4cqw, 56px)">
     <p style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.34em; color:#F2EFE8; margin:0 0 clamp(14px,2cqw,22px)">01 / ESSENCE</p>
-    <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:800; letter-spacing:{{ lsChapSm }}; margin:0 0 clamp(18px,2.6cqw,30px); line-height:{{ lhChap }}">ESSENCE.</p>
-    <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:{{ lhStmt }}; margin:0 0 clamp(20px,3.2cqw,36px)">{{ essPre }}<span style="font-weight:800; letter-spacing:{{ lsChap }}">{{ essS1 }}</span>{{ essMid }}<span style="font-weight:800; letter-spacing:{{ lsChap }}">{{ essS2 }}</span></p>
+    <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:900; letter-spacing:{{ lsChapSm }}; margin:0 0 clamp(18px,2.6cqw,30px); line-height:{{ lhChap }}">ESSENCE.</p>
+    <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:{{ lhStmt }}; margin:0 0 clamp(20px,3.2cqw,36px)">{{ essPre }}<span style="font-weight:900; letter-spacing:{{ lsChap }}">{{ essS1 }}</span>{{ essMid }}<span style="font-weight:900; letter-spacing:{{ lsChap }}">{{ essS2 }}</span></p>
     <p style="font-size:clamp(15px, 2.2cqw, 21px); line-height:{{ lhBody }}; color:#D5D0C4; margin:0 0 clamp(34px,6.4cqw,72px); max-width:46ch">{{ essLead }}</p>
     <div style="display:grid; gap:clamp(26px,4.6cqw,52px)">
       <div style="padding-top:0">
@@ -185,7 +185,7 @@
 
   <section id="epicenter" style="min-height:100svh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; padding:clamp(72px,11cqw,128px) clamp(24px, 4.4cqw, 56px); background:rgba(14,13,10,0.14)">
     <p style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.34em; color:#F2EFE8; margin:0 0 clamp(14px,2cqw,22px)">02 / EPICENTER</p>
-    <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:800; letter-spacing:{{ lsChapSm }}; line-height:{{ lhChap }}; margin:0 0 clamp(18px,2.6cqw,30px); color:#F2EFE8">MILANO.</p>
+    <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:900; letter-spacing:{{ lsChapSm }}; line-height:{{ lhChap }}; margin:0 0 clamp(18px,2.6cqw,30px); color:#F2EFE8">MILANO.</p>
     <div style="padding-top:0">
       <p style="font-size:clamp(15px, 2.2cqw, 21px); line-height:{{ lhBody }}; color:#D5D0C4; margin:0 0 clamp(12px,1.8cqw,20px); max-width:44ch">{{ epiBody }}</p>
       <p style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.34em; color:#F2EFE8; margin:0">B2B CENTRAL AXIS. &nbsp; YEAR-ROUND VISIBILITY.</p>
@@ -195,8 +195,8 @@
 
   <footer id="connect" style="position:relative; min-height:100svh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:flex-start; padding:clamp(72px,11cqw,128px) clamp(24px, 4.4cqw, 56px) clamp(96px,14cqw,168px)">
     <p style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.26em; margin:0 0 clamp(14px,2cqw,22px)">03 / CONNECT</p>
-    <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:800; letter-spacing:{{ lsChapSm }}; line-height:{{ lhChap }}; margin:0 0 clamp(18px,2.6cqw,30px)">CONNECT.</p>
-    <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:{{ lhStmt }}; margin:0 0 clamp(26px,4.4cqw,48px); display:{{ connectShow }}">{{ connectPre }}<span style="font-weight:800; letter-spacing:{{ lsChap }}">{{ connectStrong }}</span>{{ connectPost }}</p>
+    <p style="font-size:clamp(30px, 5.6cqw, 72px); font-weight:900; letter-spacing:{{ lsChapSm }}; line-height:{{ lhChap }}; margin:0 0 clamp(18px,2.6cqw,30px)">CONNECT.</p>
+    <p style="font-size:clamp(20px, 3.6cqw, 44px); font-weight:{{ lightW }}; letter-spacing:{{ lsLightSm }}; line-height:{{ lhStmt }}; margin:0 0 clamp(26px,4.4cqw,48px); display:{{ connectShow }}">{{ connectPre }}<span style="font-weight:900; letter-spacing:{{ lsChap }}">{{ connectStrong }}</span>{{ connectPost }}</p>
     <div style="display:flex; flex-wrap:wrap; gap:clamp(16px,2.8cqw,32px); margin:0 0 clamp(28px,4.4cqw,48px)">
       <a href="mailto:info@thetoneshowroom.com?subject=Brand%20Inquiry" style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.22em; color:#F2EFE8; border-bottom:1px solid rgba(242,239,232,0.5); padding-bottom:5px">{{ ctaBrand }}</a>
       <a href="mailto:info@thetoneshowroom.com?subject=Buyer%20Access" style="font-size:clamp(11px, 1.6cqw, 13px); line-height:1.1; font-weight:500; letter-spacing:0.22em; color:#F2EFE8; border-bottom:1px solid rgba(242,239,232,0.5); padding-bottom:5px">{{ ctaBuyerCaps }}</a>
@@ -213,7 +213,7 @@
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;useVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;배경&quot;},&quot;planeTone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;warm&quot;,&quot;options&quot;:[&quot;warm&quot;,&quot;neutral&quot;,&quot;cool&quot;,&quot;dark&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;배경&quot;},&quot;veilColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0E0D0A&quot;,&quot;options&quot;:[&quot;#E6009B&quot;,&quot;#9EC2A9&quot;,&quot;#B3A6D6&quot;,&quot;#A9B8C4&quot;,&quot;#0E0D0A&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;veilAlpha&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.2,&quot;min&quot;:0,&quot;max&quot;:0.9,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;veilMix&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;normal&quot;,&quot;options&quot;:[&quot;normal&quot;,&quot;multiply&quot;,&quot;screen&quot;,&quot;overlay&quot;,&quot;soft-light&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;scrimAlpha&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.62,&quot;min&quot;:0,&quot;max&quot;:0.7,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;useVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;배경&quot;},&quot;planeTone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;warm&quot;,&quot;options&quot;:[&quot;warm&quot;,&quot;neutral&quot;,&quot;cool&quot;,&quot;dark&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;배경&quot;},&quot;veilColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0E0D0A&quot;,&quot;options&quot;:[&quot;#E6009B&quot;,&quot;#9EC2A9&quot;,&quot;#B3A6D6&quot;,&quot;#A9B8C4&quot;,&quot;#0E0D0A&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;veilAlpha&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.2,&quot;min&quot;:0,&quot;max&quot;:0.9,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;veilMix&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;normal&quot;,&quot;options&quot;:[&quot;normal&quot;,&quot;multiply&quot;,&quot;screen&quot;,&quot;overlay&quot;,&quot;soft-light&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;scrimAlpha&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.62,&quot;min&quot;:0,&quot;max&quot;:0.7,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;영상 위 레이어&quot;},&quot;warmth&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.34,&quot;min&quot;:0,&quot;max&quot;:0.7,&quot;step&quot;:0.02,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;배경&quot;}}">
 class Component extends DCLogic {
   state = { times: ['--:--', '--:--', '--:--'], vx: -9999, vy: -9999, wide: true, videoSrc: '' };
   componentDidMount() {
@@ -470,7 +470,7 @@ class Component extends DCLogic {
       ...this.copy(),
       connectShow: (this.copy().connectPre || this.copy().connectStrong || this.copy().connectPost) ? 'block' : 'none',
       heroLeading: lang === 'ko' ? 1.2 : 0.88,
-      lightW: lang === 'ko' ? 300 : 200,
+      lightW: lang === 'ko' ? 250 : 100,
       lightLS: lang === 'ko' ? '-0.01em' : '-0.035em',
       lightLS2: lang === 'ko' ? '0' : '-0.022em',
       lsHeavy: lang === 'ko' ? '-0.02em' : '-0.035em',
@@ -491,7 +491,7 @@ class Component extends DCLogic {
       enColor: lang === 'en' ? '#F2EFE8' : '#B9B4A8',
       planeBg: planes[this.props.planeTone || 'warm'] || planes.cool,
       planeTint: ({
-        warm: 'rgba(206,176,134,0.34)',
+        warm: 'rgba(206,176,134,' + (this.props.warmth ?? 0.2) + ')',
         neutral: 'rgba(0,0,0,0)',
         cool: 'rgba(96,124,150,0.3)',
         dark: 'rgba(14,13,10,0.5)'
