@@ -144,9 +144,10 @@ main>section>.wrap{width:100%;margin:auto 0}
 @supports not (mask-image:linear-gradient(black,black)){.nav .brand img{visibility:visible;filter:brightness(0) invert(.8)}.nav.logo-on-white .brand img{filter:brightness(0)}.nav .brand .silver-logo{display:none}}
 
 /* Center column tint, adjustable. */
-:root{--center-a:.75}
-.hero{background:rgba(29,31,28,var(--center-a))}
-.contact{background:rgba(29,31,28,min(calc(var(--center-a) + .06),1))}
+:root{--center-a:.5;--center-rgb:48,42,60;--center-filter:contrast(1.35)}
+.hero,.contact{-webkit-backdrop-filter:var(--center-filter);backdrop-filter:var(--center-filter)}
+.hero{background:rgba(var(--center-rgb),var(--center-a))}
+.contact{background:rgba(var(--center-rgb),min(calc(var(--center-a) + .06),1))}
 /* Unified display size: 65px cap across hero and section titles. */
 .hero h1,.about-grid h2,.section-top h2,.contact h2{font-size:clamp(42px,6.1cqw,65px)}
 </style><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&amp;display=swap" rel="stylesheet"/></head><body><a class="skip" href="#main">Skip to content</a><div aria-hidden="true" class="progress"></div>
