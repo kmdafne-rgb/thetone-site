@@ -148,6 +148,11 @@ main>section>.wrap{width:100%;margin:auto 0}
 .hero,.contact{-webkit-backdrop-filter:var(--center-filter);backdrop-filter:var(--center-filter)}
 .hero{background:rgba(var(--center-rgb),var(--center-a))}
 .contact{background:rgba(var(--center-rgb),min(calc(var(--center-a) + .06),1))}
+/* Mobile: keep a thin left wing so the column isn't flush against the edge. */
+@media(max-width:760px){:root{--mwing:20px;--column:calc(100vw - 90px - var(--mwing))}main{margin-left:var(--mwing);width:var(--column)}.rail.left{left:var(--mwing)}.nav .brand{left:calc(var(--mwing) + var(--column) / 2)}}
+/* Champagne gold glow: brighter tone + halo so it reads against the pale ivory lines. */
+:root{--light:238,198,106}
+.light-framework i:after{background:radial-gradient(300px circle at var(--pointer-x) var(--pointer-y),rgba(var(--light),1),rgba(var(--light),.75) 30%,rgba(var(--light),0) 80%);background-attachment:fixed;filter:drop-shadow(0 0 3px rgba(var(--light),.95)) drop-shadow(0 0 9px rgba(var(--light),.55))}
 /* Unified display size: 65px cap across hero and section titles. */
 .hero h1,.about-grid h2,.section-top h2,.contact h2{font-size:clamp(42px,6.1cqw,65px)}
 </style><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&amp;display=swap" rel="stylesheet"/></head><body><a class="skip" href="#main">Skip to content</a><div aria-hidden="true" class="progress"></div>
