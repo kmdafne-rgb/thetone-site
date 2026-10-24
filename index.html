@@ -558,6 +558,26 @@ html[lang=en] .hero h1 .connector{vertical-align:baseline;color:#e2e2dc;text-ali
   html{scroll-snap-type:y mandatory}
   main>section{scroll-snap-stop:always}
 }
+
+/* Final screen: Location + footer as one composed snap screen */
+html #location{height:100svh!important;min-height:100svh!important;display:flex;flex-direction:column;overflow:visible!important}
+html #location>.wrap{flex:1 1 0!important;min-height:0!important;justify-content:center}
+html #location .footer .footer-mark-wrap{grid-column:1/-1;grid-row:3;align-self:center;justify-self:center;margin:0!important}
+html #location>.footer{flex:none;height:27svh;display:grid!important;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto 1fr auto;column-gap:24px;row-gap:6px;padding:24px calc(var(--wing) + 6cqw) 22px!important;margin:0 calc(var(--wing) * -1);width:100vw;max-width:none}
+html #location .footer [data-t="footerNote"]{grid-column:1/-1;grid-row:1;justify-self:end;text-align:right;margin:0!important}
+html #location .footer [data-t="back"]{grid-column:1/-1;grid-row:2;justify-self:end;margin:0!important}
+html #location .footer .wrap>div:first-child{grid-column:1/-1;grid-row:4;justify-self:start;align-self:end;margin:0!important}
+@media(min-width:951px){
+  html #location>.wrap{padding-top:clamp(105px,15svh,150px)!important;padding-bottom:45px!important}
+  html #location .location-layout iframe{margin-top:18px;height:calc(100% - 18px)}
+}
+@media(max-width:760px){
+  html #location{height:auto!important;min-height:100svh!important}
+  html #location>.wrap{flex:1 0 auto!important;min-height:0!important;justify-content:flex-start!important;padding:92px 20px 30px!important}
+  html #location .location-layout{flex:1 1 0!important;min-height:0!important;grid-template-rows:auto minmax(200px,1fr)!important;overflow:visible}
+  html #location .location-layout iframe{height:100%!important;min-height:200px!important;max-height:none!important}
+  html #location>.footer{height:27svh;flex:none;padding:22px calc(var(--rwing) + 20px) 20px calc(var(--mwing) + 20px)!important;margin:0 calc(var(--rwing) * -1) 0 calc(var(--mwing) * -1)}
+}
 </style><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&amp;display=swap" rel="stylesheet"/>
 
 
